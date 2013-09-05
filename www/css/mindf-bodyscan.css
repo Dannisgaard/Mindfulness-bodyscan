@@ -13,17 +13,24 @@ body {
 .button {
 	padding: 20px;
 	margin-top:10px;
-	height: 20px;
-	line-height: 20px;
+	height: 36px;
+	width:508px;
 	display: inline-block;
 	text-decoration: none;
 	color: #771a33;
-	font-weight: bold;
-	text-shadow: 0 1px #FFF;
-	border-radius: 2px;
+	
 }
 
-a {
+#track1 {
+	background-image:url(../img/Track1-inaktiv.png);
+}
+
+#track1.tapped {
+	background-image:url(../img/Track1-aktiv.png);
+	
+}
+
+/*a {
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.1)), color-stop(100%,rgba(0,0,0,0.3)));
 	background: -webkit-linear-gradient(top, rgba(0,0,0,0.1) 0%,rgba(0,0,0,0.3) 100%);
 	background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%,rgba(0,0,0,0.3) 100%);
@@ -38,4 +45,4 @@ a.tapped {
 	background: -webkit-linear-gradient(top, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.1) 100%);
 	background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.1) 100%);
 	text-shadow: 0 -1px rgba(255,255,255,0.5);
-}
+}*/

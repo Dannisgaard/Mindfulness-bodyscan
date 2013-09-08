@@ -1,24 +1,24 @@
-body,html {
-	position: relative;
-	height: 100%;
-}
 body {
 	font-family: Helvetica, Arial, sans-serif;
 	font-size: 13px;
 	line-height: 1.5;
 	background-image:url(../img/background.jpg);
 	font: normal 18px/1.5 'Helvetica Neue', Helvetica, sans-serif;
+	text-align: center;
+}
+
+#wrapper {
+	width: 100%;
 }
 
 .button {
-	padding: 20px;
-	margin-top:10px;
-	height: 36px;
-	width:508px;
+	margin-top: 15px;
+	height: 76px;
+	width:90%;
 	display: inline-block;
 	text-decoration: none;
 	color: #771a33;
-	
+	background-size: 100% 100%;
 }
 
 #track1 {
@@ -26,6 +26,42 @@ body {
 }
 
 #track1.tapped {
+	background-image:url(../img/Track1-aktiv.png);
+	
+}
+
+#track2 {
+	background-image:url(../img/Track1-inaktiv.png);
+}
+
+#track2.tapped {
+	background-image:url(../img/Track1-aktiv.png);
+	
+}
+
+#track3 {
+	background-image:url(../img/Track1-inaktiv.png);
+}
+
+#track3.tapped {
+	background-image:url(../img/Track1-aktiv.png);
+	
+}
+
+#track4 {
+	background-image:url(../img/Track1-inaktiv.png);
+}
+
+#track4.tapped {
+	background-image:url(../img/Track1-aktiv.png);
+	
+}
+
+#track5 {
+	background-image:url(../img/Track1-inaktiv.png);
+}
+
+#track5.tapped {
 	background-image:url(../img/Track1-aktiv.png);
 	
 }
@@ -46,3 +82,53 @@ a.tapped {
 	background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.1) 100%);
 	text-shadow: 0 -1px rgba(255,255,255,0.5);
 }*/
+
+/*  SECTIONS  */
+.section {
+	clear: both;
+	padding: 0px;
+	margin-bottom: 10px;
+}
+
+/*  COLUMN SETUP  */
+.col {
+	display: block;
+	float:left;
+	margin: 1% 0 1% 1.6%;
+}
+.col:first-child { margin-left: 0; }
+
+/*  GRID OF THREE  */
+.span_3_of_3 {
+	width: 100%;
+}
+.span_2_of_3 {
+	width: 66.1%;
+}
+.span_1_of_3 {
+	width: 32.2%;
+}
+
+/*  GRID OF FOUR  */
+.span_4_of_4 {
+	width: 100%;
+}
+.span_3_of_4 {
+	width: 74.6%;
+}
+.span_2_of_4 {
+	width: 49.2%;
+}
+.span_1_of_4 {
+	width: 23.8%;
+}
+
+/*  GROUPING  */
+.group:before,
+.group:after {
+	content:"";
+	display:table;
+}
+.group:after {
+	clear:both;
+}

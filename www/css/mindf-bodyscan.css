@@ -27,45 +27,58 @@ body {
 
 #track1.tapped {
 	background-image:url(../img/Track1-aktiv.png);
-	
 }
 
 #track2 {
-	background-image:url(../img/Track1-inaktiv.png);
+	background-image:url(../img/Track2-inaktiv.png);
 }
 
 #track2.tapped {
-	background-image:url(../img/Track1-aktiv.png);
-	
+	background-image:url(../img/Track2-aktiv.png);
 }
 
 #track3 {
-	background-image:url(../img/Track1-inaktiv.png);
+	background-image:url(../img/Track3-inaktiv.png);
 }
 
 #track3.tapped {
-	background-image:url(../img/Track1-aktiv.png);
-	
+	background-image:url(../img/Track3-aktiv.png);
 }
 
 #track4 {
-	background-image:url(../img/Track1-inaktiv.png);
+	background-image:url(../img/Track4-inaktiv.png);
 }
 
 #track4.tapped {
-	background-image:url(../img/Track1-aktiv.png);
-	
+	background-image:url(../img/Track4-aktiv.png);
 }
 
 #track5 {
-	background-image:url(../img/Track1-inaktiv.png);
+	background-image:url(../img/Track5-inaktiv.png);
 }
 
 #track5.tapped {
-	background-image:url(../img/Track1-aktiv.png);
-	
+	background-image:url(../img/Track5-aktiv.png);	
 }
 
+#track6 {
+	background-image:url(../img/Track6-inaktiv.png);
+}
+
+#track6.tapped {
+	background-image:url(../img/Track6-aktiv.png);	
+}
+
+#about-silke {
+	background-image:url(../img/about-silke-inaktiv.png);
+}
+
+#about-silke.tapped {
+	background-image:url(../img/about-silke-aktiv.png);
+}
+
+
+about-silke
 /*a {
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.1)), color-stop(100%,rgba(0,0,0,0.3)));
 	background: -webkit-linear-gradient(top, rgba(0,0,0,0.1) 0%,rgba(0,0,0,0.3) 100%);

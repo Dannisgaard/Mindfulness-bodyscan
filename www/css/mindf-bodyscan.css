@@ -2,7 +2,6 @@ body {
 	font-family: Helvetica, Arial, sans-serif;
 	font-size: 13px;
 	line-height: 1.5;
-	background-image:url(../img/background.jpg);
 	font: normal 18px/1.5 'Helvetica Neue', Helvetica, sans-serif;
 	text-align: center;
 }
@@ -21,12 +20,38 @@ body {
 	background-size: 100% 100%;
 }
 
+.smallButton {
+	margin-top: 15px;
+	height: 76px;
+	width:99px;
+	display: inline-block;
+	text-decoration: none;
+	color: #771a33;
+	background-size: 100% 100%;
+}
+.trackNameBox {
+	background-color:#FFFFFF;
+	width:90%;
+	margin: 0 auto;
+	color: #771a33;
+	font-size:22px;
+	font-weight: bold;
+	margin-top: 80px;
+}
+
+.playButtonContainer {
+	margin: 0 auto;
+	width:90%;
+	margin-top: 30px;
+}
+
 #track1 {
 	background-image:url(../img/Track1-inaktiv.png);
 }
 
 #track1.tapped {
 	background-image:url(../img/Track1-aktiv.png);
+	
 }
 
 #track2 {
@@ -77,24 +102,29 @@ body {
 	background-image:url(../img/about-silke-aktiv.png);
 }
 
-
-about-silke
-/*a {
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.1)), color-stop(100%,rgba(0,0,0,0.3)));
-	background: -webkit-linear-gradient(top, rgba(0,0,0,0.1) 0%,rgba(0,0,0,0.3) 100%);
-	background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%,rgba(0,0,0,0.3) 100%);
-	-webkit-tap-highlight-color: rgba(0,0,0,0);
-	-webkit-user-drag: none;
-	text-decoration: none;
-	-webkit-user-select: none !important;
+#playButton {
+	background-image:url(../img/StartButton-inaktiv.png);
 }
 
-a.tapped {
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.3)), color-stop(100%,rgba(0,0,0,0.1)));
-	background: -webkit-linear-gradient(top, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.1) 100%);
-	background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.1) 100%);
-	text-shadow: 0 -1px rgba(255,255,255,0.5);
-}*/
+#playButton.tapped {
+	background-image:url(../img/StartButton-aktiv.png);
+}
+
+#pauseButton {
+	background-image:url(../img/PauseButton-inaktiv.png);
+}
+
+#pauseButton.tapped {
+	background-image:url(../img/PauseButton-aktiv.png);
+}
+
+#stopButton {
+	background-image:url(../img/stopButton-inaktiv.png);
+}
+
+#stopButton.tapped {
+	background-image:url(../img/stopButton-aktiv.png);
+}
 
 /*  SECTIONS  */
 .section {

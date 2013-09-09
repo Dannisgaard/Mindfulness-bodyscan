@@ -84,6 +84,11 @@
 			console.log(error.code);
         }
 		
+		// Set audio position
+        function setAudioPosition(position) {
+            document.getElementById('audio_position').innerHTML = position;
+        }
+		
 	</script>
 </head>
 
@@ -106,6 +111,7 @@
                      <a href="#" id="playButton" class="smallButton" onclick="playAudio('mp3/Test.mp3');">&nbsp;</a>
                      <a href="#" id="pauseButton" class="smallButton" onclick="pauseAudio();">&nbsp;</a>
         			 <a href="#" id="stopButton" class="smallButton" onclick="stopAudio();">&nbsp;</a>
+                     <p id="audio_position"></p>
                   </div>
                 </div>         
       </div>

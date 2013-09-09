@@ -14,7 +14,7 @@
 	// device APIs are available
 	//
 	function onDeviceReady() {
-		playAudio("/www/mp3/Test.mp3");
+		playAudio("mp3/Test.mp3");
 	}
 	
 	// Audio player
@@ -81,14 +81,8 @@
         function onError(error) {
             alert('code: '    + error.code    + '\n' +
                   'message: ' + error.message + '\n');
+			console.log(error.code);
         }
-
-        // Set audio position
-        //
-        function setAudioPosition(position) {
-            document.getElementById('audio_position').innerHTML = position;
-        }
-		
 		
 	</script>
 </head>
@@ -109,7 +103,7 @@
                 
                 <div class="col span_4_of_4">
                   <div class="playButtonContainer">
-                     <a href="#" id="playButton" class="smallButton" onclick="playAudio('/www/mp3/Test.mp3');">&nbsp;</a>
+                     <a href="#" id="playButton" class="smallButton" onclick="playAudio('mp3/Test.mp3');">&nbsp;</a>
                      <a href="#" id="pauseButton" class="smallButton" onclick="pauseAudio();">&nbsp;</a>
         			 <a href="#" id="stopButton" class="smallButton" onclick="stopAudio();">&nbsp;</a>
                   </div>

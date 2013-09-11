@@ -5,23 +5,23 @@
 	<title>Mindfulness Bodyscan Vorwort</title>
     <link rel="stylesheet" href="css/mindf-bodyscan.css">
 	<script src="phonegap.js"></script>
-    <script src="js/zepto.min.js"></script>
+    
     <script src="js/index.js"></script>
 	<script type="text/javascript" charset="utf-8" src="cordova-x.x.x.js"></script>
     
 	<script type="text/javascript" charset="utf-8">
+	// Audio player
+	var my_media = null;
+	var mediaTimer = null;
+	
 	// Wait for device API libraries to load
 	document.addEventListener("deviceready", onDeviceReady, false);
 
 	// device APIs are available
 	function onDeviceReady() {
 		my_media = new Media(rootPath + "mp3/Spor01.mp3", onSuccess, onError);
-		playAudio();
+		playAudio(my_media);
 	}
-	
-	// Audio player
-	var my_media = null;
-	var mediaTimer = null;
 	
 	/*if(my_media != null){
 		my_media.stop();
@@ -30,7 +30,7 @@
 	}*/
 
 	// Play audio
-	function playAudio() {
+	function playAudio(my_media) {
 		my_media.play();
 
 		// Update my_media position every second

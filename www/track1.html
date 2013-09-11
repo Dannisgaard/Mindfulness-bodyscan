@@ -15,7 +15,7 @@
 
 	// device APIs are available
 	function onDeviceReady() {
-		playAudio(rootPath + "mp3/Spor01.mp3");
+		playAudio();
 	}
 	
 	// Audio player
@@ -27,7 +27,7 @@
 		my_media.release();
 		my_media = null;
 	}
-	my_media = new Media(src, onSuccess, onError);
+	my_media = new Media(rootPath + "mp3/Spor01.mp3", onSuccess, onError);
 
 	// Play audio
 	function playAudio() {

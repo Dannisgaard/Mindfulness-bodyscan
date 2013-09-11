@@ -21,13 +21,16 @@
 	// Audio player
 	var my_media = null;
 	var mediaTimer = null;
+	
+	if(my_media != null){
+		my_media.stop();
+		my_media.release();
+		my_media = null;
+	}
+	my_media = new Media(src, onSuccess, onError);
 
 	// Play audio
-	function playAudio(src) {
-		// Create Media object from src
-		my_media = new Media(src, onSuccess, onError);
-
-		// Play audio
+	function playAudio() {
 		my_media.play();
 
 		// Update my_media position every second
@@ -107,7 +110,7 @@
                 
                 <div class="col span_4_of_4">
                   <div class="playButtonContainer">
-                     <a href="#" id="playButton" class="smallButton" onclick="playAudio(rootPath + 'mp3/Spor01.mp3');">&nbsp;</a>
+                     <a href="#" id="playButton" class="smallButton" onclick="playAudio();">&nbsp;</a>
                      <a href="#" id="pauseButton" class="smallButton" onclick="pauseAudio();">&nbsp;</a>
         			 <a href="#" id="stopButton" class="smallButton" onclick="stopAudio();">&nbsp;</a>
                      <p id="audio_position"></p>

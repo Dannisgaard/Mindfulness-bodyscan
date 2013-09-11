@@ -5,32 +5,29 @@
 	<title>Mindfulness Bodyscan Vorwort</title>
     <link rel="stylesheet" href="css/mindf-bodyscan.css">
 	<script src="phonegap.js"></script>
-    
+    <script src="js/zepto.min.js"></script>
     <script src="js/index.js"></script>
 	<script type="text/javascript" charset="utf-8" src="cordova-x.x.x.js"></script>
     
 	<script type="text/javascript" charset="utf-8">
-	// Audio player
-	var my_media = null;
-	var mediaTimer = null;
-	
 	// Wait for device API libraries to load
 	document.addEventListener("deviceready", onDeviceReady, false);
 
 	// device APIs are available
 	function onDeviceReady() {
-		my_media = new Media(rootPath + "mp3/Spor01.mp3", onSuccess, onError);
-		playAudio(my_media);
+		playAudio(rootPath + "mp3/Spor01.mp3");
 	}
 	
-	/*if(my_media != null){
-		my_media.stop();
-		my_media.release();
-		my_media = null;
-	}*/
+	// Audio player
+	var my_media = null;
+	var mediaTimer = null;
 
 	// Play audio
-	function playAudio(my_media) {
+	function playAudio(src) {
+		// Create Media object from src
+		my_media = new Media(src, onSuccess, onError);
+
+		// Play audio
 		my_media.play();
 
 		// Update my_media position every second
@@ -110,7 +107,7 @@
                 
                 <div class="col span_4_of_4">
                   <div class="playButtonContainer">
-                     <a href="#" id="playButton" class="smallButton" onclick="playAudio();">&nbsp;</a>
+                     <a href="#" id="playButton" class="smallButton" onclick="playAudio(rootPath + 'mp3/Spor01.mp3');">&nbsp;</a>
                      <a href="#" id="pauseButton" class="smallButton" onclick="pauseAudio();">&nbsp;</a>
         			 <a href="#" id="stopButton" class="smallButton" onclick="stopAudio();">&nbsp;</a>
                      <p id="audio_position"></p>

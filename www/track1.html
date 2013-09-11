@@ -3,93 +3,92 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>Mindfulness Bodyscan Vorwort</title>
+    <link rel="stylesheet" href="css/mindf-bodyscan.css">
 	<script src="phonegap.js"></script>
+    <script src="js/zepto.min.js"></script>
+    <script src="js/index.js"></script>
 	<script type="text/javascript" charset="utf-8" src="cordova-x.x.x.js"></script>
-	<link rel="stylesheet" href="css/mindf-bodyscan.css">
+    
 	<script type="text/javascript" charset="utf-8">
 	// Wait for device API libraries to load
-	//
 	document.addEventListener("deviceready", onDeviceReady, false);
 
 	// device APIs are available
-	//
 	function onDeviceReady() {
-		playAudio("file:///android_asset/www/mp3/Test.mp3");
+		playAudio(rootPath + "mp3/Test.mp3");
 	}
 	
 	// Audio player
-        //
-        var my_media = null;
-        var mediaTimer = null;
+	var my_media = null;
+	var mediaTimer = null;
 
-        // Play audio
-        //
-        function playAudio(src) {
-            // Create Media object from src
-            my_media = new Media(src, onSuccess, onError);
+	// Play audio
+	function playAudio(src) {
+		// Create Media object from src
+		my_media = new Media(src, onSuccess, onError);
 
-            // Play audio
-            my_media.play();
+		// Play audio
+		my_media.play();
 
-            // Update my_media position every second
-            if (mediaTimer == null) {
-                mediaTimer = setInterval(function() {
-                    // get my_media position
-                    my_media.getCurrentPosition(
-                        // success callback
-                        function(position) {
-                            if (position > -1) {
-                                setAudioPosition((position) + " sec");
-                            }
-                        },
-                        // error callback
-                        function(e) {
-                            console.log("Error getting pos=" + e);
-                            setAudioPosition("Error: " + e);
-                        }
-                    );
-                }, 1000);
-            }
+		// Update my_media position every second
+		if (mediaTimer == null) {
+			mediaTimer = setInterval(function() {
+				// get my_media position
+				my_media.getCurrentPosition(
+					// success callback
+					function(position) {
+						if (position > -1) {
+							setAudioPosition((position) + " sec");
+						}
+					},
+					// error callback
+					function(e) {
+						console.log("Error getting pos=" + e);
+						setAudioPosition("Error: " + e);
+					}
+				);
+			}, 1000);
         }
+    }
 
-        // Pause audio
-        //
-        function pauseAudio() {
-            if (my_media) {
-                my_media.pause();
-            }
-        }
-		
-		// Stop audio
-        //
-        function stopAudio() {
-            if (my_media) {
-                my_media.stop();
-            }
-            clearInterval(mediaTimer);
-            mediaTimer = null;
-        }
+	// Pause audio
+	//
+	function pauseAudio() {
+		if (my_media) {
+			my_media.pause();
+		}
+	}
+	
+	// Stop audio
+	//
+	function stopAudio() {
+		if (my_media) {
+			my_media.stop();
+		}
+		clearInterval(mediaTimer);
+		mediaTimer = null;
+	}
 
-        // onSuccess Callback
-        //
-        function onSuccess() {
-            console.log("playAudio():Audio Success");
-        }
+	// onSuccess Callback
+	//
+	function onSuccess() {
+		console.log("playAudio():Audio Success");
+	}
 
-        // onError Callback
-        //
-        function onError(error) {
-            alert('code: '    + error.code    + '\n' +
-                  'message: ' + error.message + '\n');
-			alert(location.href);
-			console.log(error.code);
-        }
-		
-		// Set audio position
-        function setAudioPosition(position) {
-            document.getElementById('audio_position').innerHTML = position;
-        }
-		
+	// onError Callback
+	//
+	function onError(error) {
+		alert('code: '    + error.code    + '\n' +
+			  'message: ' + error.message + '\n');
+		alert(location.href);
+		console.log(error.code);
+	}
+	
+	// Set audio position
+	function setAudioPosition(position) {
+		document.getElementById('audio_position').innerHTML = Math.round(position);
+	}
+	
 	</script>
 </head>
 
@@ -109,7 +108,7 @@
                 
                 <div class="col span_4_of_4">
                   <div class="playButtonContainer">
-                     <a href="#" id="playButton" class="smallButton" onclick="playAudio('file:///android_asset/www/mp3/Test.mp3');">&nbsp;</a>
+                     <a href="#" id="playButton" class="smallButton" onclick="playAudio(rootPath + 'mp3/Test.mp3');">&nbsp;</a>
                      <a href="#" id="pauseButton" class="smallButton" onclick="pauseAudio();">&nbsp;</a>
         			 <a href="#" id="stopButton" class="smallButton" onclick="stopAudio();">&nbsp;</a>
                      <p id="audio_position"></p>
@@ -117,13 +116,6 @@
                 </div>         
       </div>
     </div>
-
-
-
-	<!--<a href="#" class="btn large" onclick="playAudio('http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3');">Play Audio</a>
-    <a href="#" class="btn large" onclick="pauseAudio();">Pause Playing Audio</a>
-    <a href="#" class="btn large" onclick="stopAudio();">Stop Playing Audio</a>
-    <p id="audio_position"></p>-->
         
 </body>
 </html>

@@ -1,3 +1,4 @@
+var rootPath = "file:///android_asset/www/";
 var app = {
     initialize: function() {
         this.bind();

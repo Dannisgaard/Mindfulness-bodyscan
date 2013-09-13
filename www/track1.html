@@ -84,14 +84,14 @@
 	
 	// Set audio position
 	function setAudioPosition(seconds) {
-		var $slider = $('#time-slider');
+		/*var $slider = $('#time-slider');
 		if (seconds < $slider.attr('min'))
 			 $slider.val($slider.attr('min'));
 		else if (seconds > $slider.attr('max'))
 			 $slider.val($slider.attr('max'));
 		else
 			 $slider.val(Math.round(seconds));
-		$slider.slider('refresh');
+		$slider.slider('refresh');*/
 		document.getElementById('audio_position').innerHTML = seconds;
 	}
 	

@@ -41,7 +41,7 @@
 					// success callback
 					function(position) {
 						if (position > -1) {
-							setAudioPosition((position) + " sec");
+							setAudioPosition(Math.round(position) + " sec");
 						}
 					},
 					// error callback
@@ -84,14 +84,6 @@
 	
 	// Set audio position
 	function setAudioPosition(seconds) {
-		/*var $slider = $('#time-slider');
-		if (seconds < $slider.attr('min'))
-			 $slider.val($slider.attr('min'));
-		else if (seconds > $slider.attr('max'))
-			 $slider.val($slider.attr('max'));
-		else
-			 $slider.val(Math.round(seconds));
-		$slider.slider('refresh');*/
 		document.getElementById('audio_position').innerHTML = seconds;
 	}
 	
@@ -118,7 +110,6 @@
                      <a href="#" id="pauseButton" class="smallButton" onclick="pauseAudio();">&nbsp;</a>
         			 <a href="#" id="stopButton" class="smallButton" onclick="stopAudio();">&nbsp;</a>
                      <p id="audio_position"></p>
-                     <p><input type="range" name="time-slider" id="time-slider" value="0" min="0" max="100" data-highlight="true" /></p>
                   </div>
                 </div>         
       </div>

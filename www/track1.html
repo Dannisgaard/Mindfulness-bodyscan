@@ -65,6 +65,7 @@
 	function stopAudio() {
 		if (my_media) {
 			my_media.stop();
+			setAudioPosition("0 sec");
 		}
 		clearInterval(mediaTimer);
 		mediaTimer = null;
@@ -106,9 +107,9 @@
                 
                 <div class="col span_4_of_4">
                   <div class="playButtonContainer">
-                     <a href="#" id="playButton" class="smallButton" onclick="playAudio();">&nbsp;</a>
-                     <a href="#" id="pauseButton" class="smallButton" onclick="pauseAudio();">&nbsp;</a>
-        			 <a href="#" id="stopButton" class="smallButton" onclick="stopAudio();">&nbsp;</a>
+                     <a href="#" id="playButton" class="smallButton" onClick="playAudio();">&nbsp;</a>
+                     <a href="#" id="pauseButton" class="smallButton" onClick="pauseAudio();">&nbsp;</a>
+        			 <a href="#" id="stopButton" class="smallButton" onClick="stopAudio();">&nbsp;</a>
                      <p id="audio_position"></p>
                   </div>
                 </div>         

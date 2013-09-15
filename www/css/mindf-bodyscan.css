@@ -39,6 +39,18 @@ body {
 	margin-top: 80px;
 }
 
+.uberBox {
+	background-color:#FFFFFF;
+	width:90%;
+	height: 400px;
+	margin: 0 auto;
+	color: #771a33;
+	font-size:22px;
+	margin-top: 80px;
+	text-align:left;
+	padding: 5px;
+}
+
 .playButtonContainer {
 	margin: 0 auto;
 	width:90%;
@@ -124,6 +136,14 @@ body {
 
 #stopButton.tapped {
 	background-image:url(../img/stopButton-aktiv.png);
+}
+
+#zuhauseButton {
+	background-image:url(../img/ZuhauseButton-inaktiv.png);
+}
+
+#zuhauseButton.tapped {
+	background-image:url(../img/ZuhauseButton-aktiv.png);
 }
 
 /*  SECTIONS  */

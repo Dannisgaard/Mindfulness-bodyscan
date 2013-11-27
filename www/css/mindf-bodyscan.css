@@ -18,6 +18,7 @@ body {
 	text-decoration: none;
 	color: #771a33;
 	background-size: 100% 100%;
+	max-width: 500px;
 }
 
 .smallButton {
@@ -37,6 +38,7 @@ body {
 	font-size:22px;
 	font-weight: bold;
 	margin-top: 80px;
+	max-width: 500px;
 }
 
 .uberBox {
@@ -48,13 +50,23 @@ body {
 	font-size:22px;
 	margin-top: 80px;
 	text-align:left;
-	padding: 5px;
+	padding: 10px;
+	max-width: 500px;
+	overflow:hidden;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+
+.uberBox p{
+	font-size: 20px;
+	line-height: 21px;
 }
 
 .playButtonContainer {
 	margin: 0 auto;
 	width:90%;
 	margin-top: 30px;
+	max-width: 500px;
 }
 
 #track1 {
@@ -138,11 +150,11 @@ body {
 	background-image:url(../img/stopButton-aktiv.png);
 }
 
-#zuhauseButton {
+#willkommenButton {
 	background-image:url(../img/ZuhauseButton-inaktiv.png);
 }
 
-#zuhauseButton.tapped {
+#willkommenButton.tapped {
 	background-image:url(../img/ZuhauseButton-aktiv.png);
 }
 
@@ -157,7 +169,7 @@ body {
 .col {
 	display: block;
 	float:left;
-	margin: 1% 0 1% 1.6%;
+	margin: 1% 0 1% 0%;
 }
 .col:first-child { margin-left: 0; }
 

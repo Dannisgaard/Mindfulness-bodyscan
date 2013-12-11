@@ -1,0 +1,5 @@
+Alias: Center for mindfulness
+password: Solskin1
+first and last name: Silke Rowlin
+
+Keystoke password: Solskin1

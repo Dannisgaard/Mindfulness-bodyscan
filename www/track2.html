@@ -12,23 +12,6 @@
 	<script type="text/javascript" charset="utf-8">
 	// Wait for device API libraries to load
 	document.addEventListener("deviceready", onDeviceReady, false);
-
-	// device APIs are available
-	function onDeviceReady() {
-		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFileSystemSuccess, fail);
-		window.resolveLocalFileSystemURI("file:///android_asset/www/img/mp3/Spor02.mp3", onFileFound, onFileNotFound);
-		my_media = new Media(rootPath + "mp3/Spor02.mp3", onSuccess, onError);
-		playAudio();
-	}
-	
-	function onFileFound(fileEntry) {
-    console.log(fileEntry.name);
-    my_media = new Media(rootPath + "mp3/Spor02.mp3", onSuccess, onError);
-	}
-	
-	function onFileNotFound(evt) {
-        console.log(evt.target.error.code);
-    }
 	
 	// Audio player
 	var my_media = null;
@@ -39,12 +22,32 @@
 		my_media.release();
 		my_media = null;
 	}
+
+	// device APIs are available
+	function onDeviceReady() {
+		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFileSystemSuccess, fail);
+		window.resolveLocalFileSystemURI("file:///android_asset/www/img/mp3/Spor02.mp3", onFileFound, onFileNotFound);
+		my_media = new Media(rootPath + "mp3/Spor02.mp3", onSuccess, onError);
+		
+	}
+	
+	function onFileFound(fileEntry) {
+    console.log(fileEntry.name);
+    my_media = new Media("File:///android_asset/www/img/mp3/Spor02.mp3", onSuccess, onError);
+    playAudio();
+	}
+	
+	function onFileNotFound(evt) {
+        console.log(evt.target.error.code);
+        downloadMp3track();
+    }
+	
 	
 	// !! Assumes filePath is a valid path on the device
 
 var fileTransfer = new FileTransfer();
 var uri = encodeURI("http://apps.dannisgaard.dk/mp3/Spor02.mp3");
-var filePath = rootPath + "mp3/Spor02.mp3";
+var filePath = "File:///android_asset/www/img/mp3/Spor02.mp3";
 
 function downloadMp3track() {
 	fileTransfer.download(

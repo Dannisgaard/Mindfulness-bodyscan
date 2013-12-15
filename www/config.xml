@@ -28,8 +28,12 @@
         following tag to your config.xml; you will still have the INTERNET
         permission on your app, which PhoneGap requires.
     -->
-    <plugin name="File" value="org.apache.cordova.FileUtils" />
-		<plugin name="FileTransfer" value="org.apache.cordova.FileTransfer" />
+    <feature id="blackberry.io.file" required="true" version="1.0.0.0" />
+		<feature id="blackberry.utils"   required="true" version="1.0.0.0" />
+		<feature id="blackberry.io.dir"  required="true" version="1.0.0.0" />
+		<rim:permissions>
+		    <rim:permit>access_shared</rim:permit>
+		</rim:permissions>
 
     <!-- Customize your app and platform with the preference element. -->
     <preference name="phonegap-version"           value="2.9.0" />          <!-- all: current version of PhoneGap -->

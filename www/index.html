@@ -6,9 +6,64 @@
 	<title>Achtsamkeits-meditation</title>
 	<link rel="stylesheet" href="css/mindf-bodyscan.css">
 	<script src="phonegap.js"></script>
-    <script src="js/zepto.min.js"></script>
-    <script src="js/index.js"></script>
-    <script type="text/javascript" charset="utf-8" src="cordova-x.x.x.js"></script>
+  <script src="js/zepto.min.js"></script>
+  <script src="js/index.js"></script>
+  <script type="text/javascript" charset="utf-8" src="cordova-x.x.x.js"></script>
+  <script type="text/javascript" charset="utf-8">
+		// Wait for device API libraries to load
+		document.addEventListener("deviceready", onDeviceReady, false);
+		
+		// device APIs are available
+	function onDeviceReady() {
+		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFileSystemSuccess, onFail);
+	}
+	
+	function onFail(evt) {
+		console.log("filsystem ikke fundet");
+    console.log(evt.target.error.code);
+	}
+	
+	function onFileSystemSuccess() {
+		console.log("filsystem fundet");
+		window.resolveLocalFileSystemURI("file:///mnt/sdcard/Android/data/dk.center-for-mindfulness.Achtsamkeits-meditatiob/Spor02.mp3", onFileFound, onFileNotFound);
+	}
+	
+	function onFileFound(fileEntry) {
+		console.log("fil fundet");
+    console.log(fileEntry.name);
+    my_media = new Media("file:///mnt/sdcard/Android/data/dk.center-for-mindfulness.Achtsamkeits-meditatiob/Spor02.mp3", onSuccess, onError);
+    playAudio();
+	}
+	
+	function onFileNotFound(evt) {
+		console.log("fil ikke fundet");
+      console.log(evt.target.error.code);
+      downloadMp3track();
+  }
+	
+	
+	// !! Assumes filePath is a valid path on the device
+
+var uri = encodeURI("http://apps.dannisgaard.dk/mp3/Spor02.mp3");
+var filePath = "file:///mnt/sdcard/Android/data/dk.center-for-mindfulness.Achtsamkeits-meditatiob/Spor02.mp3";
+
+function downloadMp3track() {
+	var fileTransfer = new FileTransfer();
+	fileTransfer.download(
+	    uri,
+	    filePath,
+	    function(entry) {
+	        console.log("download complete: " + entry.fullPath);
+	        my_media = new Media("file:///mnt/sdcard/Android/data/dk.center-for-mindfulness.Achtsamkeits-meditatiob/Spor02.mp3", onSuccess, onError);
+    			playAudio();
+	    },
+	    function(error) {
+	        console.log("download error source " + error.source);
+	        console.log("download error target " + error.target);
+	    }
+	)
+}
+	</script>
 </head>
 
 <body style="background-image:url(img/background.jpg);">

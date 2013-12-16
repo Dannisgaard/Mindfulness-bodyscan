@@ -35,14 +35,14 @@
 	
 	function onFileSystemSuccess() {
 		console.log("filsysten fundet");
-		window.resolveLocalFileSystemURI("/android_asset/www/mp3/Spor02.mp3", onFileFound, onFileNotFound);
-		//my_media = new Media("/android_asset/www/mp3/Spor02.mp3", onSuccess, onError);
+		window.resolveLocalFileSystemURI("File:///sdcard/Android/data/dk.center-for-mindfulness.Achtsamkeits-meditatiob/Spor02.mp3", onFileFound, onFileNotFound);
+		my_media = new Media("File:///sdcard/Android/data/dk.center-for-mindfulness.Achtsamkeits-meditatiob/Spor02.mp3", onSuccess, onError);
 	}
 	
 	function onFileFound(fileEntry) {
 		console.log("fil fundet");
     console.log(fileEntry.name);
-    my_media = new Media("/android_asset/www/mp3/Spor02.mp3", onSuccess, onError);
+    my_media = new Media("File:///sdcard/Android/data/dk.center-for-mindfulness.Achtsamkeits-meditatiob/Spor02.mp3", onSuccess, onError);
     playAudio();
 	}
 	

@@ -1,0 +1,188 @@
+commit 59939994a6b6790bcb8b5cde2cf4a428f09dbda6
+Author: Dannisgaard <Lars.Radoor.Hansen@gmail.com>
+Date:   Sun Dec 15 15:04:43 2013 +0100
+
+    Find file on local filesystem
+
+diff --git a/www/track2.html b/www/track2.html
+index cd12b1c..732f760 100644
+--- a/www/track2.html
++++ b/www/track2.html
+@@ -15,10 +15,21 @@
+ 
+ 	// device APIs are available
+ 	function onDeviceReady() {
++		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFileSystemSuccess, fail);
++		window.resolveLocalFileSystemURI("file:///android_asset/www/img/mp3/Spor02.mp3", onFileFound, onFileNotFound);
+ 		my_media = new Media(rootPath + "mp3/Spor02.mp3", onSuccess, onError);
+ 		playAudio();
+ 	}
+ 	
++	function onFileFound(fileEntry) {
++    console.log(fileEntry.name);
++    my_media = new Media(rootPath + "mp3/Spor02.mp3", onSuccess, onError);
++	}
++	
++	function onFileNotFound(evt) {
++        console.log(evt.target.error.code);
++    }
++	
+ 	// Audio player
+ 	var my_media = null;
+ 	var mediaTimer = null;
+@@ -28,6 +39,27 @@
+ 		my_media.release();
+ 		my_media = null;
+ 	}
++	
++	// !! Assumes filePath is a valid path on the device
++
++var fileTransfer = new FileTransfer();
++var uri = encodeURI("http://apps.dannisgaard.dk/mp3/Spor02.mp3");
++var filePath = rootPath + "mp3/Spor02.mp3";
++
++function downloadMp3track() {
++	fileTransfer.download(
++	    uri,
++	    filePath,
++	    function(entry) {
++	        console.log("download complete: " + entry.fullPath);
++	    },
++	    function(error) {
++	        console.log("download error source " + error.source);
++	        console.log("download error target " + error.target);
++	        console.log("upload error code" + error.code);
++	    }
++	)
++}
+ 
+ 	// Play audio
+ 	function playAudio() {
+diff --git a/www/track2.html.bak b/www/track2.html.bak
+new file mode 100644
+index 0000000..cd12b1c
+--- /dev/null
++++ b/www/track2.html.bak
+@@ -0,0 +1,122 @@
++<!doctype html>
++<html lang="de">
++<head>
++	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
++	<title>Achtsamkeits-meditation: Im Jetzt ankommen</title>
++    <link rel="stylesheet" href="css/mindf-bodyscan.css">
++	<script src="phonegap.js"></script>
++    <script src="js/zepto.min.js"></script>
++    <script src="js/index.js"></script>
++	<script type="text/javascript" charset="utf-8" src="cordova-x.x.x.js"></script>
++    
++	<script type="text/javascript" charset="utf-8">
++	// Wait for device API libraries to load
++	document.addEventListener("deviceready", onDeviceReady, false);
++
++	// device APIs are available
++	function onDeviceReady() {
++		my_media = new Media(rootPath + "mp3/Spor02.mp3", onSuccess, onError);
++		playAudio();
++	}
++	
++	// Audio player
++	var my_media = null;
++	var mediaTimer = null;
++	
++	if(my_media != null){
++		my_media.stop();
++		my_media.release();
++		my_media = null;
++	}
++
++	// Play audio
++	function playAudio() {
++		my_media.play();
++
++		// Update my_media position every second
++		if (mediaTimer == null) {
++			mediaTimer = setInterval(function() {
++				// get my_media position
++				my_media.getCurrentPosition(
++					// success callback
++					function(position) {
++						if (position > -1) {
++							setAudioPosition(Math.round(position) + " sec");
++						}
++					},
++					// error callback
++					function(e) {
++						console.log("Error getting pos=" + e);
++						setAudioPosition("Error: " + e);
++					}
++				);
++			}, 1000);
++        }
++    }
++
++	// Pause audio
++	function pauseAudio() {
++		if (my_media) {
++			my_media.pause();
++		}
++	}
++	
++	// Stop audio
++	function stopAudio() {
++		if (my_media) {
++			my_media.stop();
++			setAudioPosition("0 sec");
++		}
++		clearInterval(mediaTimer);
++		mediaTimer = null;
++	}
++
++	// onSuccess Callback
++	function onSuccess() {
++		console.log("playAudio():Audio Success");
++	}
++
++	// onError Callback
++	function onError(error) {
++		/*alert('code: '    + error.code    + '\n' +
++			  'message: ' + error.message + '\n');*/
++		console.log(error.code);
++	}
++	
++	// Set audio position
++	function setAudioPosition(seconds) {
++		document.getElementById('audio_position').innerHTML = seconds;
++	}
++	
++	</script>
++</head>
++
++<body style="background-image:url(img/backgroundT2.jpg);">
++	<div id="wrapper">
++  <div class="section group">
++                <div class="col span_4_of_4">
++                	<img src="img/Headline1.png" width="380" height="142" alt="Mindfulness Bodyscan"/><br/>
++            		<img src="img/Headline3.png" width="280" height="75" alt="Innere Stille im Alltag erleben"><br/>
++                </div>
++                
++                <div class="col span_4_of_4">
++                  <div class="trackNameBox">
++                     Im Jetzt ankommen
++                  </div>
++                </div>
++                
++                <div class="col span_4_of_4">
++                  <div class="playButtonContainer">
++                     <a href="#" id="playButton" class="smallButton" onClick="playAudio();">&nbsp;</a>
++                     <a href="#" id="pauseButton" class="smallButton" onClick="pauseAudio();">&nbsp;</a>
++        			 <a href="#" id="stopButton" class="smallButton" onClick="stopAudio();">&nbsp;</a>
++                     <p id="audio_position"></p>
++                  </div>
++                  <br/>
++                  <a href="willkommen.html" id="willkommenButton" class="button">&nbsp;</a><br/>
++                </div>         
++      </div>
++    </div>
++        
++</body>
++</html>

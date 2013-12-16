@@ -26,11 +26,9 @@
 	// device APIs are available
 	function onDeviceReady() {
 		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFileSystemSuccess, fail);
-	}
-	
-	function onFileSystemSuccess() {
 		window.resolveLocalFileSystemURI("file:///android_asset/www/img/mp3/Spor02.mp3", onFileFound, onFileNotFound);
 		my_media = new Media(rootPath + "mp3/Spor02.mp3", onSuccess, onError);
+		
 	}
 	
 	function onFileFound(fileEntry) {

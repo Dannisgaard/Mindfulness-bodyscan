@@ -25,35 +25,38 @@
 	
 	function onFileSystemSuccess() {
 		console.log("filsystem fundet");
-		window.resolveLocalFileSystemURI("file:///mnt/sdcard/Android/data/dk.center-for-mindfulness.Achtsamkeits-meditatiob/Spor02.mp3", onFileFound, onFileNotFound);
+		window.resolveLocalFileSystemURI("file:///mnt/sdcard/Android/data/dk.center-for-mindfulness.Achtsamkeits-meditation/Spor02.mp3", onFileFound, onFileNotFound);
+		window.resolveLocalFileSystemURI("file:///mnt/sdcard/Android/data/dk.center-for-mindfulness.Achtsamkeits-meditation/Spor03.mp3", onFileFound, onFileNotFound);
+		window.resolveLocalFileSystemURI("file:///mnt/sdcard/Android/data/dk.center-for-mindfulness.Achtsamkeits-meditation/Spor04.mp3", onFileFound, onFileNotFound);
+		window.resolveLocalFileSystemURI("file:///mnt/sdcard/Android/data/dk.center-for-mindfulness.Achtsamkeits-meditation/Spor05.mp3", onFileFound, onFileNotFound);
+		window.resolveLocalFileSystemURI("file:///mnt/sdcard/Android/data/dk.center-for-mindfulness.Achtsamkeits-meditation/Spor06.mp3", onFileFound, onFileNotFound);
 	}
 	
 	function onFileFound(fileEntry) {
 		console.log("fil fundet");
     console.log(fileEntry.name);
-    my_media = new Media("file:///mnt/sdcard/Android/data/dk.center-for-mindfulness.Achtsamkeits-meditatiob/Spor02.mp3", onSuccess, onError);
-    playAudio();
+    
 	}
 	
 	function onFileNotFound(evt) {
 		console.log("fil ikke fundet");
-    downloadMp3track();
+    downloadMp3track("Spor02.mp3");
   }
 	
 	
 	// !! Assumes filePath is a valid path on the device
 
 var uri = encodeURI("http://apps.dannisgaard.dk/mp3/Spor02.mp3");
-var filePath = "file:///mnt/sdcard/Android/data/dk.center-for-mindfulness.Achtsamkeits-meditatiob/Spor02.mp3";
+var filePath = "file:///mnt/sdcard/Android/data/dk.center-for-mindfulness.Achtsamkeits-meditation/Spor02.mp3";
 
-function downloadMp3track() {
+function downloadMp3track(File) {
 	var fileTransfer = new FileTransfer();
 	fileTransfer.download(
 	    uri,
 	    filePath,
 	    function(entry) {
 	        console.log("download complete: " + entry.fullPath);
-	        my_media = new Media("file:///mnt/sdcard/Android/data/dk.center-for-mindfulness.Achtsamkeits-meditatiob/Spor02.mp3", onSuccess, onError);
+	        my_media = new Media("file:///mnt/sdcard/Android/data/dk.center-for-mindfulness.Achtsamkeits-meditation/" + File, onSuccess, onError);
     			playAudio();
 	    },
 	    function(error) {

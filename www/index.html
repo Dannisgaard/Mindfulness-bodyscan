@@ -16,6 +16,7 @@
 		// device APIs are available
 	function onDeviceReady() {
 		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFileSystemSuccess, onFail);
+		alert(window.getExternalStorageState());
 	}
 	
 	function onFail(evt) {

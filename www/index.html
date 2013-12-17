@@ -62,12 +62,12 @@ function onFileNotFound5(evt) {
 		console.log("fil ikke fundet");
     downloadMp3track("Spor06.mp3");
   }
-  funktion getUri(fileName) {
+  function getUri(fileName) {
   	var uri = "http://apps.dannisgaard.dk/mp3/";
   	return encodeURI(uri + fileName);
   }
   
-  funktion getPath(fileName) {
+  function getPath(fileName) {
   	var path = "file:///mnt/sdcard/Android/data/dk.center-for-mindfulness.Achtsamkeits-meditation/";
   	return path + fileName;
   }

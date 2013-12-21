@@ -25,11 +25,11 @@
 	
 	function onFileSystemSuccess() {
 		console.log("filsystem fundet");
-		window.resolveLocalFileSystemURI("file:///mnt/sdcard/Android/data/dk.center-for-mindfulness.Achtsamkeits_meditation/Spor02.mp3", onFileFound, onFileNotFound2);
-		window.resolveLocalFileSystemURI("file:///mnt/sdcard/Android/data/dk.center-for-mindfulness.Achtsamkeits_meditation/Spor03.mp3", onFileFound, onFileNotFound3);
-		window.resolveLocalFileSystemURI("file:///mnt/sdcard/Android/data/dk.center-for-mindfulness.Achtsamkeits_meditation/Spor04.mp3", onFileFound, onFileNotFound4);
-		window.resolveLocalFileSystemURI("file:///mnt/sdcard/Android/data/dk.center-for-mindfulness.Achtsamkeits_meditation/Spor05.mp3", onFileFound, onFileNotFound5);
-		window.resolveLocalFileSystemURI("file:///mnt/sdcard/Android/data/dk.center-for-mindfulness.Achtsamkeits_meditation/Spor06.mp3", onFileFound, onFileNotFound6);
+		window.resolveLocalFileSystemURI("file:///mnt/sdcard/Android/data/dk.centerForMindfulness.Achtsamkeits_meditation/Spor02.mp3", onFileFound, onFileNotFound2);
+		window.resolveLocalFileSystemURI("file:///mnt/sdcard/Android/data/dk.centerForMindfulness.Achtsamkeits_meditation/Spor03.mp3", onFileFound, onFileNotFound3);
+		window.resolveLocalFileSystemURI("file:///mnt/sdcard/Android/data/dk.centerForMindfulness.Achtsamkeits_meditation/Spor04.mp3", onFileFound, onFileNotFound4);
+		window.resolveLocalFileSystemURI("file:///mnt/sdcard/Android/data/dk.centerForMindfulness.Achtsamkeits_meditation/Spor05.mp3", onFileFound, onFileNotFound5);
+		window.resolveLocalFileSystemURI("file:///mnt/sdcard/Android/data/dk.centerForMindfulness.Achtsamkeits_meditation/Spor06.mp3", onFileFound, onFileNotFound6);
 	}
 	
 	function onFileFound(fileEntry) {
@@ -68,7 +68,7 @@ function onFileNotFound5(evt) {
   }
   
   function getPath(fileName) {
-  	var path = "file:///mnt/sdcard/Android/data/dk.center-for-mindfulness.Achtsamkeits_meditation/";
+  	var path = "file:///mnt/sdcard/Android/data/dk.centerForMindfulness.Achtsamkeits_meditation/";
   	return path + fileName;
   }
 

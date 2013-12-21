@@ -3,10 +3,10 @@
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "dk.center-for-mindfulness.Achtsamkeits_meditation"
+        id        = "dk.centerForMindfulness.Achtsamkeits_meditation"
         version   = "1.0.0">
 
-    <name>Achtsamkeits-meditation</name>
+    <name>Achtsamkeits meditation</name>
 
     <description>
         Mindfulness meditation

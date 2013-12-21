@@ -16,6 +16,7 @@
 	// device APIs are available
 	function onDeviceReady() {
 		my_media = new Media(rootPath + "mp3/Spor01.mp3", onSuccess, onError);
+		document.addEventListener("pause", cleanup, false);
 		playAudio();
 	}
 	
@@ -88,6 +89,9 @@
 		document.getElementById('audio_position').innerHTML = seconds;
 	}
 	
+	function cleanup() {
+	    stopAudio();
+	}
 	</script>
 </head>
 

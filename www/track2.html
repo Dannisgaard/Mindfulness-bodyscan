@@ -26,6 +26,7 @@
 	// device APIs are available
 	function onDeviceReady() {
 		my_media = new Media("file:///mnt/sdcard/Android/data/dk.center-for-mindfulness.Achtsamkeits_meditation/Spor02.mp3", onSuccess, onError);
+		document.addEventListener("pause", cleanup, false);
 		playAudio();
 	}
 	
@@ -97,7 +98,7 @@
 	</script>
 </head>
 
-<body style="background-image:url(img/backgroundT2.jpg);" onunload="cleanup()">
+<body style="background-image:url(img/backgroundT2.jpg);" >
 	<div id="wrapper">
   <div class="section group">
                 <div class="col span_4_of_4">

@@ -88,10 +88,13 @@
 		document.getElementById('audio_position').innerHTML = seconds;
 	}
 	
+	function cleanup() {
+	    stopAudio();
+	}
 	</script>
 </head>
 
-<body style="background-image:url(img/backgroundT3.jpg);">
+<body style="background-image:url(img/backgroundT3.jpg);" onunload="cleanup()">
 	<div id="wrapper">
   <div class="section group">
                 <div class="col span_4_of_4">
